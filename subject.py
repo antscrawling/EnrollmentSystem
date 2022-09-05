@@ -155,6 +155,7 @@ def submain():
     if not os.path.exists('subjects.json'):
         a4 = open('subjects.json','w')
         json.dump(subdict,a4)
+        subdict= loadfile(subdict)
         a4.close()
     else :
         subdict = loadfile(subdict)

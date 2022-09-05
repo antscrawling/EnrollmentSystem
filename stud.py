@@ -173,6 +173,7 @@ def studmain():
     if not os.path.exists('students.json'):
         fx = open('students.json','w')
         json.dump(studdict,fx)
+        studdict = loadfile(studdict)
         fx.close()
     else :
         studdict = loadfile(studdict)
