@@ -29,12 +29,12 @@ def savefile(subdict):
 def addsubjects(subdict):
     addlayout = [
             [sg.Text('Add Subjects Maintenance',justification='center', text_color='Blue',size = 50)],
-            [sg.Text('Subject ID     ',justification='left', text_color='Blue',size = 20),sg.Input(key='subid')],
-            [sg.Text('Subject Name   ',justification='left', text_color='Blue',size = 20),sg.Input(key='subname')],
-            [sg.Text('Subject Teacher',justification='left', text_color='Blue',size = 20),sg.Input(key='teacher')],
-            [sg.Text('Subject Term   ',justification='left', text_color='Blue',size = 20),sg.Input(key='term')],
-            [sg.Text('Subject Units  ',justification='left', text_color='Blue',size = 20),sg.Input(key='units')],
-            [sg.Text('',key='addtext',justification='left',text_color='Blue',size = 20)],
+            [sg.Text('Subject ID     ',justification='left', text_color='Blue',size = (20,1)),sg.Input(key='subid')],
+            [sg.Text('Subject Name   ',justification='left', text_color='Blue',size = (20,1)),sg.Input(key='subname')],
+            [sg.Text('Subject Teacher',justification='left', text_color='Blue',size = (20,1)),sg.Input(key='teacher')],
+            [sg.Text('Subject Term   ',justification='left', text_color='Blue',size = (20,1)),sg.Input(key='term')],
+            [sg.Text('Subject Units  ',justification='left', text_color='Blue',size = (20,1)),sg.Input(key='units')],
+            [sg.Text('',key='addtext',justification='left',text_color='Blue',size = (20,1))],
             [sg.Submit(),sg.Cancel()]
     ]
     wind7 = sg.Window('Adding New Subjects',addlayout)
@@ -60,7 +60,7 @@ def addsubjects(subdict):
 def editsubjects(subdict):
     editlayout = [
             [sg.Text(size=50)],
-            [sg.OptionMenu(subdict.keys(),size=20),
+            [sg.OptionMenu(subdict.keys(),size=(20,1)),
             sg.Submit(),sg.Cancel()],
             [sg.Text(size=50)]
     ]
@@ -74,11 +74,11 @@ def editsubjects(subdict):
             break
         elif event == 'Submit':
             valuelayout = [
-            [sg.Text('Subject ID : ',size=20),sg.Text(subid,key='subid',size=35)],
-            [sg.Text('Subject Name',size=20),sg.Input(subdict[subid]['subname'],key='subname',size=20)],
-            [sg.Text('Subject Teacher',size=20),sg.Input(subdict[subid]['teacher'],key='teacher',size=20)],
-            [sg.Text('Subject Term',size=20),sg.Input(subdict[subid]['term'],key='term',size=20)],
-            [sg.Text('Subject Units',size=20),sg.Input(subdict[subid]['units'],key='units',size=20)],
+            [sg.Text('Subject ID : ',size = (20,1)),sg.Text(subid,key='subid',size=35)],
+            [sg.Text('Subject Name',size = (20,1)),sg.Input(subdict[subid]['subname'],key='subname',size = (20,1))],
+            [sg.Text('Subject Teacher',size = (20,1)),sg.Input(subdict[subid]['teacher'],key='teacher',size = (20,1))],
+            [sg.Text('Subject Term',size = (20,1)),sg.Input(subdict[subid]['term'],key='term',size = (20,1))],
+            [sg.Text('Subject Units',size = (20,1)),sg.Input(subdict[subid]['units'],key='units',size = (20,1))],
             [sg.Submit(),sg.Cancel()],
             [sg.Text(size=50)]
                 ]
@@ -103,11 +103,11 @@ def editsubjects(subdict):
     wind3.close()
 def showdelrec(subid,subdict):
     showlayout = [ 
-        [sg.Text('Subject ID       ',size=20),sg.Text(subid,justification='left', text_color='Blue',size = 20)],
-        [sg.Text('Subject Name     ',size=20),sg.Text(subdict[subid]['subname'],justification='left', text_color='Blue',size = 20)],
-        [sg.Text('Subject Teacher  ',size=20),sg.Text(subdict[subid]['teacher'],justification='left', text_color='Blue',size = 20)],
-        [sg.Text('Subject Term     ',size=20),sg.Text(subdict[subid]['term'],justification='left', text_color='Blue',size = 20)],
-        [sg.Text('Subject Units    ',size=20),sg.Text(subdict[subid]['units'],justification='left', text_color='Blue',size = 20)],
+        [sg.Text('Subject ID       ',size = (20,1)),sg.Text(subid,justification='left', text_color='Blue',size = (20,1))],
+        [sg.Text('Subject Name     ',size = (20,1)),sg.Text(subdict[subid]['subname'],justification='left', text_color='Blue',size = (20,1))],
+        [sg.Text('Subject Teacher  ',size = (20,1)),sg.Text(subdict[subid]['teacher'],justification='left', text_color='Blue',size = (20,1))],
+        [sg.Text('Subject Term     ',size = (20,1)),sg.Text(subdict[subid]['term'],justification='left', text_color='Blue',size = (20,1))],
+        [sg.Text('Subject Units    ',size = (20,1)),sg.Text(subdict[subid]['units'],justification='left', text_color='Blue',size = (20,1))],
         [sg.Text('Delete This Record?')],
         [sg.Submit(),sg.Cancel()]
 
@@ -130,7 +130,7 @@ def showdelrec(subid,subdict):
 def deletesubjects(subdict):
     deletelayout = [
             [sg.Text(size=50)],
-            [sg.OptionMenu(subdict.keys(),size=20,key='subid'),
+            [sg.OptionMenu(subdict.keys(),size = (20,1),key='subid'),
             sg.Submit(),sg.Cancel()],
             [sg.Text(size=50)]
     ]
@@ -161,12 +161,12 @@ def submain():
         subdict = loadfile(subdict)
     sg.theme('Purple')
     layout = [  
-            [sg.Text('Subjects Maintenance',justification='center', text_color='Blue',size = 30)],
-            [sg.Button('Add    Subjects',size=14,key='Add'),sg.Text('Add new records',justification='left',size=30)],
-            [sg.Button('Edit   Subjects',size=14,key='Edit'),sg.Text('Edit Existing records',justification='left',size=30)],
-            [sg.Button('Delete Subjects',size=14,key='Delete'),sg.Text('Delete Existing records',justification='left',size=30)],
-            [sg.Button('View Subjects',size=14,key='View'),sg.Text('View Existing records',justification='left',size=30)],
-            [sg.Cancel(size=14),sg.Text('Cancel  ',justification='left', size=30)]
+            [sg.Text('Subjects Maintenance',justification='center', text_color='Blue',size =(20,1))],
+            [sg.Button('Add    Subjects',size = (20,1),key='Add'),sg.Text('Add new records',justification='left',size = (20,1))],
+            [sg.Button('Edit   Subjects',size = (20,1),key='Edit'),sg.Text('Edit Existing records',justification='left',size = (20,1))],
+            [sg.Button('Delete Subjects',size = (20,1),key='Delete'),sg.Text('Delete Existing records',justification='left',size = (20,1))],
+            [sg.Button('View Subjects',size = (20,1),key='View'),sg.Text('View Existing records',justification='left',size = (20,1))],
+            [sg.Cancel(size = (20,1)),sg.Text('Cancel  ',justification='left', size = (20,1))]
         ]
     wind2 = sg.Window('Subjects Maintenance Program',layout)
 

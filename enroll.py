@@ -25,13 +25,13 @@ def addenrollment(enrolldict,studdict,subdict):
             [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term')
              ,sg.Submit()],
             [sg.Text('',size=50)],
-            [sg.Text('Subject Name',size=15),sg.Text('',key='subname',size=30,text_color='Blue')],
-            [sg.Text('Teacher Name',size=15),sg.Text('',key='teacher',size=30,text_color='Blue')],
-            [sg.Text('Units',size=15),sg.Text('',key='units',size=30,text_color='Blue')],
-            [sg.Text('Amount',size=15),sg.Text('',key='amount',size=30,text_color='Blue')],
-            [sg.Text('First Name',size=15),sg.Text('',key='fname',size=30,text_color='Blue')],
-            [sg.Text('Middle Name',size=15),sg.Text('',key='mname',size=30,text_color='Blue')],
-            [sg.Text('Last Name',size=15),sg.Text('',key='lname',size=30,text_color='Blue')],  
+            [sg.Text('Subject Name',size = (20,1)),sg.Text('',key='subname',size = (20,1),text_color='Blue')],
+            [sg.Text('Teacher Name',size = (20,1)),sg.Text('',key='teacher',size = (20,1),text_color='Blue')],
+            [sg.Text('Units',size = (20,1)),sg.Text('',key='units',size = (20,1),text_color='Blue')],
+            [sg.Text('Amount',size = (20,1)),sg.Text('',key='amount',size = (20,1),text_color='Blue')],
+            [sg.Text('First Name',size = (20,1)),sg.Text('',key='fname',size = (20,1),text_color='Blue')],
+            [sg.Text('Middle Name',size = (20,1)),sg.Text('',key='mname',size = (20,1),text_color='Blue')],
+            [sg.Text('Last Name',size = (20,1)),sg.Text('',key='lname',size = (20,1),text_color='Blue')],  
             [sg.Text('',key='message',size=50)],         
             [sg.Cancel(),sg.Button('ENROLL')]            
             ]
@@ -116,14 +116,14 @@ def editenrollment(enrolldict,studdict,subdict):
              sg.Text('',size=20)],
             [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term'),
              sg.Text('',size=20)],
-            [sg.Text('Subject Name',size=15),sg.Text('',key='subname',size=30,text_color='Blue')],
-            [sg.Text('Teacher Name',size=15),sg.Text('',key='teacher',size=30,text_color='Blue')],
-            [sg.Text('Units',size=15),sg.Text('',key='units',size=30,text_color='Blue')],
-            [sg.Text('Amount',size=15),sg.Text('',key='amount',size=30,text_color='Blue')],
-            [sg.Text('Student ID',size=15),sg.Text('',key='studid',size=30,text_color='Blue')],
-            [sg.Text('First Name',size=15),sg.Text('',key='fname',size=30,text_color='Blue')],
-            [sg.Text('Middle Name',size=15),sg.Text('',key='mname',size=30,text_color='Blue')],
-            [sg.Text('Last Name',size=15),sg.Text('',key='lname',size=30,text_color='Blue')],  
+            [sg.Text('Subject Name',size = (20,1)),sg.Text('',key='subname',size = (20,1),text_color='Blue')],
+            [sg.Text('Teacher Name',size = (20,1)),sg.Text('',key='teacher',size = (20,1),text_color='Blue')],
+            [sg.Text('Units',size = (20,1)),sg.Text('',key='units',size = (20,1),text_color='Blue')],
+            [sg.Text('Amount',size = (20,1)),sg.Text('',key='amount',size = (20,1),text_color='Blue')],
+            [sg.Text('Student ID',size = (20,1)),sg.Text('',key='studid',size = (20,1),text_color='Blue')],
+            [sg.Text('First Name',size = (20,1)),sg.Text('',key='fname',size = (20,1),text_color='Blue')],
+            [sg.Text('Middle Name',size = (20,1)),sg.Text('',key='mname',size = (20,1),text_color='Blue')],
+            [sg.Text('Last Name',size = (20,1)),sg.Text('',key='lname',size = (20,1),text_color='Blue')],  
             [sg.Text('',key='message',size=50)],         
             [sg.Cancel(),sg.Button('EDIT THIS')]            
             ]
@@ -211,14 +211,14 @@ def deleteenrollment(enrolldict,studdict,subdict):
              sg.Text('',size=20)],
             [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term'),
              sg.Text('',size=20)],
-            [sg.Text('Subject Name',size=15),sg.Text('',key='subname',size=30,text_color='Blue')],
-            [sg.Text('Teacher Name',size=15),sg.Text('',key='teacher',size=30,text_color='Blue')],
-            [sg.Text('Units',size=15),sg.Text('',key='units',size=30,text_color='Blue')],
-            [sg.Text('Amount',size=15),sg.Text('',key='amount',size=30,text_color='Blue')],
-            [sg.Text('Student ID',size=15),sg.Text('',key='studid',size=30,text_color='Blue')],
-            [sg.Text('First Name',size=15),sg.Text('',key='fname',size=30,text_color='Blue')],
-            [sg.Text('Middle Name',size=15),sg.Text('',key='mname',size=30,text_color='Blue')],
-            [sg.Text('Last Name',size=15),sg.Text('',key='lname',size=30,text_color='Blue')],  
+            [sg.Text('Subject Name',size = (20,1)),sg.Text('',key='subname',size = (20,1),text_color='Blue')],
+            [sg.Text('Teacher Name',size = (20,1)),sg.Text('',key='teacher',size = (20,1),text_color='Blue')],
+            [sg.Text('Units',size = (20,1)),sg.Text('',key='units',size = (20,1),text_color='Blue')],
+            [sg.Text('Amount',size = (20,1)),sg.Text('',key='amount',size = (20,1),text_color='Blue')],
+            [sg.Text('Student ID',size = (20,1)),sg.Text('',key='studid',size = (20,1),text_color='Blue')],
+            [sg.Text('First Name',size = (20,1)),sg.Text('',key='fname',size = (20,1),text_color='Blue')],
+            [sg.Text('Middle Name',size = (20,1)),sg.Text('',key='mname',size = (20,1),text_color='Blue')],
+            [sg.Text('Last Name',size = (20,1)),sg.Text('',key='lname',size = (20,1),text_color='Blue')],  
             [sg.Text('',key='message',size=50)],         
             [sg.Cancel(),sg.Button('DELETE THIS')]            
             ]
@@ -294,11 +294,11 @@ def enrollmain():
     sg.theme('Purple')
     layout = [  
             [sg.Text('Enrollment Maintenance',justification='center', text_color='Blue',size = 30)],
-            [sg.Button('Add Enrollment   ',size=20,key='Add'),sg.Text('Add new records',justification='left',size=30)],
-            [sg.Button('Edit Enrollment  ',size=20,key='Edit'),sg.Text('Edit Existing records',justification='left',size=30)],
-            [sg.Button('Delete Enrollment',size=20,key='Delete'),sg.Text('Delete Existing records',justification='left',size=30)],
-            [sg.Button('View Enrollment  ',size=20,key='View'),sg.Text('View Existing records',justification='left',size=30)],
-            [sg.Cancel(size=20),sg.Text('to quit  ',justification='left', size=30)],
+            [sg.Button('Add Enrollment   ',size=20,key='Add'),sg.Text('Add new records',justification='left',size = (20,1))],
+            [sg.Button('Edit Enrollment  ',size=20,key='Edit'),sg.Text('Edit Existing records',justification='left',size = (20,1))],
+            [sg.Button('Delete Enrollment',size=20,key='Delete'),sg.Text('Delete Existing records',justification='left',size = (20,1))],
+            [sg.Button('View Enrollment  ',size=20,key='View'),sg.Text('View Existing records',justification='left',size = (20,1))],
+            [sg.Cancel(size=20),sg.Text('to quit  ',justification='left', size = (20,1))],
         ]
     wind2 = sg.Window('Registration of Classes of Students', layout)
     while True:
