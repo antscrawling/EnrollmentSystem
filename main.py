@@ -8,7 +8,7 @@ import PySimpleGUI as sg
 def main():
     sg.theme('Purple')
     layout = [  [sg.Text(size=40)],
-            [sg.Text('Enrollment Program',font = 'Helvetica',justification='center', text_color='Blue',border_width=1,size = (20,1))],
+            [sg.Text('Enrollment Program',font = 'Helvetica',justification='center', text_color='Blue',border_width=1,size = (30,1))],
             [sg.Text(size=40)],
             [sg.Button('Students',font = 'Helvetica',size=(20,1)),sg.Text('Students Maintenance ',font = 'Helvetica',text_color='Blue',justification='left', size=(20,1))],
             [sg.Button('Subjects',font = 'Helvetica',size=(20,1)),sg.Text('Subjects Maintenance ',font = 'Helvetica',text_color='Blue',justification='left', size=(20,1))],
