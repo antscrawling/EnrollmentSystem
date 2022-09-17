@@ -5,7 +5,7 @@ import enroll
 import PySimpleGUI as sg
 
 
-def main():
+def mainmenu():
     sg.theme('Purple')
     layout = [  [sg.Text(size=40)],
             [sg.Text('Enrollment Program',font = 'Helvetica',justification='center', text_color='Blue',border_width=1,size = (30,1))],
@@ -37,8 +37,7 @@ def main():
             break
     wind1.close()    
 
-if __name__ == '__main__':
-    main()
-
+#if __name__ == '__main__':
+#    main()
 
 
