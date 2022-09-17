@@ -7,3 +7,5 @@ Subjects, Students, and Enrollment Record. since this is modular, you can easily
 3. Using JSON conversion from dictionary to store as a text file with .json extension
 4. passing parameters as an object dictionary instead of fields to easily get the data into the memory.
 5. Feel free to add OS.PATH Commands to check for existing files.
+6. To run the program, run passmain.py
+7. initial admin password is admin
