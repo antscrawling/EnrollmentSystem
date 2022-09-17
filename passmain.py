@@ -55,6 +55,9 @@ class thispass:
 
 
 def createpass():
+    
+
+    
     thisdict = {}
     sg.theme('Purple')
     clayout = [ 
@@ -73,7 +76,9 @@ def createpass():
         #elif values['-Nlogin-'] == '' or values['-ALogin-'] == '' or values['-NPassword-'] == '' or values['-APassword-'] == '':
         #    cwind.close()
         #    break
-        elif events == 'Submit':       
+        elif events == 'Submit':   
+            try:
+
                 # validate admin
                 storeddict = {}
                 shift = len(values['-ALogin-']+values['-APassword-']) * 2 
@@ -86,7 +91,8 @@ def createpass():
                     shift = len(values['-NLogin-']+values['-NPassword-']) * 2 
                     newpass = thispass(values['-NLogin-'],values['-NPassword-'],shift)
                     epass = newpass.encrypt()
-                    newpass.passdict = {newpass.login: epass}
+                    newpass.passdict = {values['-NLogin-']:epass}
+                    oldpass.passdict  = oldpass.loadfile()
                     oldpass.passdict.update(newpass.passdict)
                     oldpass.savefile()
                     cwind.close()
@@ -105,6 +111,8 @@ def createpass():
                 #createpass.passdict.update(thisdict)
                 #createpass.savefile()
                 #print(createpass.passdict)
+            except:
+                return
     #mypass.decrypt()
         elif events == 'Cancel':
             
@@ -166,12 +174,13 @@ def passmain():
         [sg.Text('Login  ',size=(15,1),font='Arial'),sg.Input(font='Arial',key='-Login-',size=(40,3))],
         [sg.Text('Password',size=(15,1),font='Arial'),sg.Input(font='Arial',key='-Password-',size=(40,3))],
         [sg.Text(key='Message')],
-        [sg.Button('Submit',size=(15,1),font='Arial'),sg.Button('Cancel',size=(15,1),font='Arial'),sg.Button('Forgot Password',font='Arial',size=(15,1)),sg.Button('Create',font='Arial',size=(15,1))],
+        [sg.Button('Submit',size=(15,1),font='Arial'),sg.Button('Cancel',size=(15,1),font='Arial'),sg.Button('Create',font='Arial',size=(15,1))],
         [sg.Text()]
     ]
     wind = sg.Window('Password Login',layout)
     while True:
         events, values = wind.read()
+        wind['Message'].update('')
         if events == sg.WIN_CLOSED or events == 'Cancel':
             break
         #elif values['-Login-'] == '' or values['-Password-']=='':
@@ -182,18 +191,19 @@ def passmain():
                     sg.Popup('Login Successful')
                     wind['-Login-'].update('')
                     wind['-Password-'].update('')
+                    wind['Message'].update('')
                     main.mainmenu()
                     continue
                 else:
                     sg.Popup('Password Incorrect')
                     wind['-Login-'].update('')
                     wind['-Password-'].update('')
+                    wind['Message'].udpate('')
                     continue
             except: 
                 wind['Message'].update('Blank entered')
                 continue
-        elif events == 'Create':
-            
+        elif events == 'Create':            
             createpass()
             continue
             
