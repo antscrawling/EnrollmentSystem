@@ -155,6 +155,7 @@ def passmain():
         [sg.Text()]
     ]
     wind = sg.Window('Password Login',layout)
+    initial = 0
     while True:
         events, values = wind.read()
         wind['Message'].update('')
@@ -163,23 +164,24 @@ def passmain():
         #elif values['-Login-'] == '' or values['-Password-']=='':
         #    break
         elif events == 'Submit' :
-            try:
-                if trytologin(values):
-                    sg.Popup('Login Successful',font=('Arial',20))
-                    wind['-Login-'].update('')
-                    wind['-Password-'].update('')
-                    wind['Message'].update('')
-                    main.mainmenu()
-                    continue
-                else:
-                    sg.Popup('Password Incorrect',font=('Arial',20))
-                    wind['-Login-'].update('')
-                    wind['-Password-'].update('')
-                    wind['Message'].udpate('')
-                    continue
-            except: 
-                if values['-Login-'] == '' or values['-Password-'] == '':
-                    wind['Message'].update('Blank entered')
+            
+            if trytologin(values):
+                sg.Popup('Login Successful',font=('Arial',20))
+                wind['-Login-'].update('')
+                wind['-Password-'].update('')
+                wind['Message'].update('')
+                main.mainmenu()
+                continue
+            elif not trytologin(values):
+                sg.Popup('Password Incorrect',font=('Arial',20))
+                wind['-Login-'].update('')
+                wind['-Password-'].update('')
+                wind['Message'].udpate('')
+                
+                continue
+            
+            elif values['-Password-'] == '' or values['-Login-'] == '':
+                wind['Message'].update('Blank entered')
                 continue
         elif events == 'Create':            
             createpass()
