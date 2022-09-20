@@ -92,40 +92,33 @@ def addenrollment(enrolldict,studdict,subdict):
 
 
 def editenrollment(enrolldict,studdict,subdict):
-    counter = 0
 
-    column1 = [[sg.Text('Column 1', background_color='lightblue', justification='center', size=(10, 1))],
-           [sg.Spin(values=('Spin Box 1', '2', '3'),
-                    initial_value='Spin Box 1')],
-           [sg.Spin(values=('Spin Box 1', '2', '3'),
-                    initial_value='Spin Box 2')],
-           [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 3')]] 
     
 #enrolldict['dj'] = {'term':subdict['BIOLOGY101A']['term'],
 #                'teacher':subdict['BIOLOGY101A']['teacher'],
 #                'amount': (float(subdict['BIOLOGY101A']['units']) * float(enrolldict['dj']['rate'])).__round__(2)}
     editlayout = [
             [sg.Text('',size=20)],
-            [sg.Text('Enrollment Record',size=10),sg.OptionMenu(enrolldict.keys(),size=50,key='enrollrec')
+            [sg.Text('Enrollment Record',size=15,font=('Arial',20)),sg.OptionMenu(enrolldict.keys(),size=50,key='enrollrec')
              ,sg.Submit()],
-            [sg.Text('',size=50)],            
-            [sg.Text('',size=20)],
-            [sg.Text('Student ID',size=10),sg.OptionMenu(studdict.keys(),size=20,key='studid'),
-             sg.Text('',size=20)],
-            [sg.Text('Subject ID',size=10),sg.OptionMenu(subdict.keys(),size=20,key='subid'),
-             sg.Text('',size=20)],
-            [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term'),
-             sg.Text('',size=20)],
-            [sg.Text('Subject Name',size = (20,1)),sg.Text('',key='subname',size = (20,1),text_color='Blue')],
-            [sg.Text('Teacher Name',size = (20,1)),sg.Text('',key='teacher',size = (20,1),text_color='Blue')],
-            [sg.Text('Units',size = (20,1)),sg.Text('',key='units',size = (20,1),text_color='Blue')],
-            [sg.Text('Amount',size = (20,1)),sg.Text('',key='amount',size = (20,1),text_color='Blue')],
-            [sg.Text('Student ID',size = (20,1)),sg.Text('',key='studid',size = (20,1),text_color='Blue')],
-            [sg.Text('First Name',size = (20,1)),sg.Text('',key='fname',size = (20,1),text_color='Blue')],
-            [sg.Text('Middle Name',size = (20,1)),sg.Text('',key='mname',size = (20,1),text_color='Blue')],
-            [sg.Text('Last Name',size = (20,1)),sg.Text('',key='lname',size = (20,1),text_color='Blue')],  
-            [sg.Text('',key='message',size=50)],         
-            [sg.Cancel(),sg.Button('EDIT THIS')]            
+            [sg.Text('',size=50,font=('Arial',20))],            
+            [sg.Text('',size=20,font=('Arial',20))],
+            [sg.Text('Student ID',size=10,font=('Arial',20)),sg.OptionMenu(studdict.keys(),size=20,key='studid'),
+             sg.Text('',size=20,font=('Arial',20))],
+            [sg.Text('Subject ID',size=10,font=('Arial',20)),sg.OptionMenu(subdict.keys(),size=20,key='subid'),
+             sg.Text('',size=20,font=('Arial',20))],
+            [sg.Text('Term',size=10,font=('Arial',20)),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term'),
+             sg.Text('',size=20,font=('Arial',20))],
+            [sg.Text('Subject Name',size = (20,1),font=('Arial',20)),sg.Text('',key='subname',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Teacher Name',size = (20,1),font=('Arial',20)),sg.Text('',key='teacher',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Units',size = (20,1),font=('Arial',20)),sg.Text('',key='units',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Amount',size = (20,1),font=('Arial',20)),sg.Text('',key='amount',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Student ID',size = (20,1),font=('Arial',20)),sg.Text('',key='studid',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('First Name',size = (20,1),font=('Arial',20)),sg.Text('',key='fname',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Middle Name',size = (20,1),font=('Arial',20)),sg.Text('',key='mname',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Last Name',size = (20,1),font=('Arial',20)),sg.Text('',key='lname',size = (20,1),text_color='Blue',font=('Arial',20))],  
+            [sg.Text('',key='message',size=50,font=('Arial',20))],         
+            [sg.Cancel(font=('Arial',20)),sg.Button('EDIT THIS',font=('Arial',20))]            
             ]
     wind = sg.Window('Enrollment Registration',editlayout)   
     while True:
@@ -200,17 +193,17 @@ def editenrollment(enrolldict,studdict,subdict):
 def deleteenrollment(enrolldict,studdict,subdict):
     sg.theme('Purple')
     editlayout = [
-            [sg.Text('',size=20)],
+            [sg.Text('',size=20,font=('Arial',20))],
             [sg.Text('Enrollment Record',size=10),sg.OptionMenu(enrolldict.keys(),size=50,key='enrollrec')
              ,sg.Submit()],
             [sg.Text('',size=50)],            
-            [sg.Text('',size=20)],
-            [sg.Text('Student ID',size=10),sg.OptionMenu(studdict.keys(),size=20,key='studid'),
-             sg.Text('',size=20)],
-            [sg.Text('Subject ID',size=10),sg.OptionMenu(subdict.keys(),size=20,key='subid'),
-             sg.Text('',size=20)],
-            [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term'),
-             sg.Text('',size=20)],
+            [sg.Text('',size=20,font=('Arial',20))],
+            [sg.Text('Student ID',size=10),sg.OptionMenu(studdict.keys(),size=20,font=('Arial',20),key='studid'),
+             sg.Text('',size=20,font=('Arial',20))],
+            [sg.Text('Subject ID',size=10),sg.OptionMenu(subdict.keys(),size=20,font=('Arial',20),key='subid'),
+             sg.Text('',size=20,font=('Arial',20))],
+            [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,font=('Arial',20),key='term'),
+             sg.Text('',size=20,font=('Arial',20))],
             [sg.Text('Subject Name',size = (20,1)),sg.Text('',key='subname',size = (20,1),text_color='Blue')],
             [sg.Text('Teacher Name',size = (20,1)),sg.Text('',key='teacher',size = (20,1),text_color='Blue')],
             [sg.Text('Units',size = (20,1)),sg.Text('',key='units',size = (20,1),text_color='Blue')],
