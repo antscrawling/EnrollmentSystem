@@ -148,9 +148,9 @@ def passmain():
     sg.theme('Purple')
     layout = [ 
         [sg.Text()],
-        [sg.Text('Login  ',size=(15,1),font=('Courier',20)),sg.Input(font=('Arial',20),key='-Login-',size=(40,3))],
-        [sg.Text('Password',size=(15,1),font=('Courier',20)),sg.Input(font=('Arial',20),password_char='*',key='-Password-',size=(40,3))],
-        [sg.Text(key='Message')],
+        [sg.Text('Login  ',size=(15,1),font=('Arial',20)),sg.Input(font=('Arial',20),key='-Login-',size=(40,3))],
+        [sg.Text('Password',size=(15,1),font=('Arial',20)),sg.Input(font=('Arial',20),password_char='*',key='-Password-',size=(40,3))],
+        [sg.Text(key='Message',text_color='Blue',font=('Arial',20))],
         [sg.Text(),sg.Button('Submit',size=(15,1),font=('Arial',20)),sg.Button('Cancel',size=(15,1),font=('Arial',20)),sg.Button('Create',font=('Arial',20),size=(15,1))],
         [sg.Text()]
     ]
@@ -178,7 +178,8 @@ def passmain():
                     wind['Message'].udpate('')
                     continue
             except: 
-                wind['Message'].update('Blank entered')
+                if values['-Login-'] == '' or values['-Password-'] == '':
+                    wind['Message'].update('Blank entered')
                 continue
         elif events == 'Create':            
             createpass()

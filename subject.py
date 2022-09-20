@@ -166,7 +166,7 @@ def submain():
             [sg.Button('Edit   Subjects',size = (20,1),font=('Arial',20),key='Edit'),sg.Text('Edit Existing records',justification='left',size = (20,1),font=('Arial',20))],
             [sg.Button('Delete Subjects',size = (20,1),font=('Arial',20),key='Delete'),sg.Text('Delete Existing records',justification='left',size = (20,1),font=('Arial',20))],
             [sg.Button('View Subjects',size = (20,1),font=('Arial',20),key='View'),sg.Text('View Existing records',justification='left',size = (20,1),font=('Arial',20))],
-            [sg.Cancel(font=('Arial',20)),sg.Text('Cancel',font=('Arial',20),justification='left', size = (20,1))]
+            [sg.Cancel(size = (20,1),font=('Arial',20)),sg.Text('Cancel',font=('Arial',20),justification='left', size = (20,1))]
         ]
     wind2 = sg.Window('Subjects Maintenance Program',layout)
 
