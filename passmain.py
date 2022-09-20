@@ -1,4 +1,5 @@
 
+from tkinter.font import BOLD
 import main
 import os
 import json
@@ -22,13 +23,13 @@ class thispass:
         return self.string 
 
     def decrypt(self):
-        newdict = {}
+          
         x = 0
         self.string = ''
         for x in range(len(self.passdict[self.login])):
             self.string += chr(ord(self.passdict[self.login][x:x+1:1]) - self.shift )
             x += 1
-            #print(self.string)
+            
         return self.string        
 
 
@@ -37,7 +38,6 @@ class thispass:
             if os.path.exists('pass.json'):
                 file = open('pass.json','r')
                 self.passdict = json.load(file)
-                print('File saved')
                 file.close()   
         except:
             self.savefile()
@@ -54,18 +54,14 @@ class thispass:
 
 
 
-def createpass():
-    
-
-    
-    thisdict = {}
+def createpass():       
     sg.theme('Purple')
     clayout = [ 
-        [sg.Text('Enter New Login',size=(20,1),font='Arial'),sg.Input(key='-NLogin-',size=(40,3),font='Arial')],
-        [sg.Text('Enter New Password',size=(20,1),font='Arial'),sg.Input(key='-NPassword-',size=(40,3),font='Arial')],
-        [sg.Text('Enter Admin Login',size=(20,1),font='Arial'),sg.Input(key='-ALogin-',size=(40,3),font='Arial')],
-        [sg.Text('Enter Admin Password',size=(20,1),font='Arial'),sg.Input(key='-APassword-',size=(40,3),font='Arial')],
-        [sg.Button('Submit',size=(15,1),font='Arial'),sg.Button('Cancel',size=(15,1),font='Arial')]
+        [sg.Text('Enter New Login',size=(20,1),font=('Arial',20)),sg.Input(key='-NLogin-',size=(40,3),font=('Arial',20))],
+        [sg.Text('Enter New Password',size=(20,1),font=('Arial',20)),sg.Input(key='-NPassword-',size=(40,3),font=('Arial',20))],
+        [sg.Text('Enter Admin Login',size=(20,1),font=('Arial',20)),sg.Input(key='-ALogin-',size=(40,3),font=('Arial',20))],
+        [sg.Text('Enter Admin Password',size=(20,1),font=('Arial',20)),sg.Input(key='-APassword-',size=(40,3),font=('Arial',20))],
+        [sg.Button('Submit',size=(15,1),font=('Arial',20)),sg.Button('Cancel',size=(15,1),font=('Arial',20))]
     ]
     cwind = sg.Window('Create New Password',clayout)
     while True:
@@ -73,14 +69,11 @@ def createpass():
         if events == sg.WINDOW_CLOSED or events == 'Cancel':
             cwind.close()
             break
-        #elif values['-Nlogin-'] == '' or values['-ALogin-'] == '' or values['-NPassword-'] == '' or values['-APassword-'] == '':
-        #    cwind.close()
-        #    break
         elif events == 'Submit':   
             try:
 
                 # validate admin
-                storeddict = {}
+                   
                 shift = len(values['-ALogin-']+values['-APassword-']) * 2 
                 oldpass = thispass(values['-ALogin-'],values['-APassword-'],shift)
                 oldpass.passdict = oldpass.loadfile()
@@ -100,31 +93,15 @@ def createpass():
                 else:
                     cwind.close()
                     break
-
-                #shift = len(values['-NLogin-']+values['-NPassword']) * 2 
-                #createpass = thispass(values['-NLogin-'],values['-NPassword'],shift)      
-                #createpass.passdict = createpass.loadfile()
-                #epass = createpass.encrypt()
-
-
-                #createpass.passdict = createpass.loadfile()
-                #createpass.passdict.update(thisdict)
-                #createpass.savefile()
-                #print(createpass.passdict)
             except:
                 return
-    #mypass.decrypt()
         elif events == 'Cancel':
             
             return
     
-    #print(mypass.passdict)
+
 
 def trytologin(values):
-    entereddict = {}
-    
-    #login = input('Enter Saved Login : ')
-    #password = input ('Enter Saved Password : ')  
     shift = len(values['-Login-']+values['-Password-']) * 2 
     mypass = thispass(values['-Login-'],values['-Password-'],shift)  
     mypass.passdict = mypass.loadfile()
@@ -171,10 +148,10 @@ def passmain():
     sg.theme('Purple')
     layout = [ 
         [sg.Text()],
-        [sg.Text('Login  ',size=(15,1),font='Arial'),sg.Input(font='Arial',key='-Login-',size=(40,3))],
-        [sg.Text('Password',size=(15,1),font='Arial'),sg.Input(font='Arial',key='-Password-',size=(40,3))],
+        [sg.Text('Login  ',size=(15,1),font=('Courier',20)),sg.Input(font=('Arial',20),key='-Login-',size=(40,3))],
+        [sg.Text('Password',size=(15,1),font=('Courier',20)),sg.Input(font=('Arial',20),key='-Password-',size=(40,3))],
         [sg.Text(key='Message')],
-        [sg.Button('Submit',size=(15,1),font='Arial'),sg.Button('Cancel',size=(15,1),font='Arial'),sg.Button('Create',font='Arial',size=(15,1))],
+        [sg.Text(),sg.Button('Submit',size=(15,1),font=('Arial',20)),sg.Button('Cancel',size=(15,1),font=('Arial',20)),sg.Button('Create',font=('Arial',20),size=(15,1))],
         [sg.Text()]
     ]
     wind = sg.Window('Password Login',layout)

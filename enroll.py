@@ -18,22 +18,22 @@ def addenrollment(enrolldict,studdict,subdict):
     sg.theme('Purple')
     addlayout = [
             [sg.Text('',size=20)],
-            [sg.Text('Student ID',size=10),sg.OptionMenu(studdict.keys(),size=20,key='studid'),
+            [sg.Text('Student ID',size=10,font=('Arial',20)),sg.OptionMenu(studdict.keys(),size=20,key='studid'),
              sg.Text('',size=20)],
-            [sg.Text('Subject ID',size=10),sg.OptionMenu(subdict.keys(),size=20,key='subid'),
+            [sg.Text('Subject ID',size=10,font=('Arial',20)),sg.OptionMenu(subdict.keys(),size=20,key='subid'),
              sg.Text('',size=20)],
-            [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term')
+            [sg.Text('Term',size=10,font=('Arial',20)),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term')
              ,sg.Submit()],
             [sg.Text('',size=50)],
-            [sg.Text('Subject Name',size = (20,1)),sg.Text('',key='subname',size = (20,1),text_color='Blue')],
-            [sg.Text('Teacher Name',size = (20,1)),sg.Text('',key='teacher',size = (20,1),text_color='Blue')],
-            [sg.Text('Units',size = (20,1)),sg.Text('',key='units',size = (20,1),text_color='Blue')],
-            [sg.Text('Amount',size = (20,1)),sg.Text('',key='amount',size = (20,1),text_color='Blue')],
-            [sg.Text('First Name',size = (20,1)),sg.Text('',key='fname',size = (20,1),text_color='Blue')],
-            [sg.Text('Middle Name',size = (20,1)),sg.Text('',key='mname',size = (20,1),text_color='Blue')],
-            [sg.Text('Last Name',size = (20,1)),sg.Text('',key='lname',size = (20,1),text_color='Blue')],  
-            [sg.Text('',key='message',size=50)],         
-            [sg.Cancel(),sg.Button('ENROLL')]            
+            [sg.Text('Subject Name',size = (20,1),font=('Arial',20)),sg.Text('',key='subname',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Teacher Name',size = (20,1),font=('Arial',20)),sg.Text('',key='teacher',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Units',size = (20,1),font=('Arial',20)),sg.Text('',key='units',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Amount',size = (20,1),font=('Arial',20)),sg.Text('',key='amount',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('First Name',size = (20,1),font=('Arial',20)),sg.Text('',key='fname',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Middle Name',size = (20,1),font=('Arial',20)),sg.Text('',key='mname',size = (20,1),text_color='Blue',font=('Arial',20))],
+            [sg.Text('Last Name',size = (20,1),font=('Arial',20)),sg.Text('',key='lname',size = (20,1),text_color='Blue',font=('Arial',20))],  
+            [sg.Text('',key='message',size=50,font=('Arial',20))],         
+            [sg.Cancel(font=('Arial',20)),sg.Button('ENROLL',font=('Arial',20))]            
             ]
     wind = sg.Window('Enrollment Registration',addlayout)   
     while True:
@@ -293,12 +293,12 @@ def enrollmain():
 
     sg.theme('Purple')
     layout = [  
-            [sg.Text('Enrollment Maintenance',justification='center', text_color='Blue',size = 30)],
-            [sg.Button('Add Enrollment   ',size=20,key='Add'),sg.Text('Add new records',justification='left',size = (20,1))],
-            [sg.Button('Edit Enrollment  ',size=20,key='Edit'),sg.Text('Edit Existing records',justification='left',size = (20,1))],
-            [sg.Button('Delete Enrollment',size=20,key='Delete'),sg.Text('Delete Existing records',justification='left',size = (20,1))],
-            [sg.Button('View Enrollment  ',size=20,key='View'),sg.Text('View Existing records',justification='left',size = (20,1))],
-            [sg.Cancel(size=20),sg.Text('to quit  ',justification='left', size = (20,1))],
+            [sg.Text('Enrollment Maintenance',justification='center', text_color='Blue',size = 40,font=('Arial',20))],
+            [sg.Button('Add Enrollment   ',size=20,key='Add',font=('Arial',20)),sg.Text('Add new records',justification='left',size = (20,1),font=('Arial',20))],
+            [sg.Button('Edit Enrollment  ',size=20,key='Edit',font=('Arial',20)),sg.Text('Edit Existing records',justification='left',size = (20,1),font=('Arial',20))],
+            [sg.Button('Delete Enrollment',size=20,key='Delete',font=('Arial',20)),sg.Text('Delete Existing records',justification='left',size = (20,1),font=('Arial',20))],
+            [sg.Button('View Enrollment  ',size=20,key='View',font=('Arial',20)),sg.Text('View Existing records',justification='left',size = (20,1),font=('Arial',20))],
+            [sg.Cancel(size=20,font=('Arial',20)),sg.Text('Cancel ',justification='left', size = (20,1),font=('Arial',20))],
         ]
     wind2 = sg.Window('Registration of Classes of Students', layout)
     while True:
@@ -330,7 +330,7 @@ def enrollmain():
 
 
 
-if __name__ == '__main__':
-    enrollmain()
+#if __name__ == '__main__':
+#    enrollmain()
 
 
