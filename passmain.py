@@ -58,9 +58,9 @@ def createpass():
     sg.theme('Purple')
     clayout = [ 
         [sg.Text('Enter New Login',size=(20,1),font=('Arial',20)),sg.Input(key='-NLogin-',size=(40,3),font=('Arial',20))],
-        [sg.Text('Enter New Password',size=(20,1),font=('Arial',20)),sg.Input(key='-NPassword-',size=(40,3),font=('Arial',20))],
+        [sg.Text('Enter New Password',size=(20,1),font=('Arial',20)),sg.Input(key='-NPassword-',password_char='*',size=(40,3),font=('Arial',20))],
         [sg.Text('Enter Admin Login',size=(20,1),font=('Arial',20)),sg.Input(key='-ALogin-',size=(40,3),font=('Arial',20))],
-        [sg.Text('Enter Admin Password',size=(20,1),font=('Arial',20)),sg.Input(key='-APassword-',size=(40,3),font=('Arial',20))],
+        [sg.Text('Enter Admin Password',size=(20,1),font=('Arial',20)),sg.Input(key='-APassword-',password_char='*',size=(40,3),font=('Arial',20))],
         [sg.Button('Submit',size=(15,1),font=('Arial',20)),sg.Button('Cancel',size=(15,1),font=('Arial',20))]
     ]
     cwind = sg.Window('Create New Password',clayout)
@@ -149,7 +149,7 @@ def passmain():
     layout = [ 
         [sg.Text()],
         [sg.Text('Login  ',size=(15,1),font=('Courier',20)),sg.Input(font=('Arial',20),key='-Login-',size=(40,3))],
-        [sg.Text('Password',size=(15,1),font=('Courier',20)),sg.Input(font=('Arial',20),key='-Password-',size=(40,3))],
+        [sg.Text('Password',size=(15,1),font=('Courier',20)),sg.Input(font=('Arial',20),password_char='*',key='-Password-',size=(40,3))],
         [sg.Text(key='Message')],
         [sg.Text(),sg.Button('Submit',size=(15,1),font=('Arial',20)),sg.Button('Cancel',size=(15,1),font=('Arial',20)),sg.Button('Create',font=('Arial',20),size=(15,1))],
         [sg.Text()]
