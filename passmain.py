@@ -165,14 +165,14 @@ def passmain():
         elif events == 'Submit' :
             try:
                 if trytologin(values):
-                    sg.Popup('Login Successful')
+                    sg.Popup('Login Successful',font=('Arial',20))
                     wind['-Login-'].update('')
                     wind['-Password-'].update('')
                     wind['Message'].update('')
                     main.mainmenu()
                     continue
                 else:
-                    sg.Popup('Password Incorrect')
+                    sg.Popup('Password Incorrect',font=('Arial',20))
                     wind['-Login-'].update('')
                     wind['-Password-'].update('')
                     wind['Message'].udpate('')
