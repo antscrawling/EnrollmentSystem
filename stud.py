@@ -1,9 +1,9 @@
 
 import os
 import json
-import pandas as pd
+
 import PySimpleGUI as sg
-from pandas.io.json._normalize import nested_to_record  
+
 
 def loadfile(studdict):
     #studdict = {'studid':[],'fname':[],'mname':[],'lname':[],'rate':[]}
