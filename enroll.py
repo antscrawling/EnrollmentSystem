@@ -13,6 +13,19 @@ def savefile(enrolldict):
         json.dump(enrolldict,f2)
         f2.close()
     return enrolldict
+
+def print_students(enrolldict):
+    term = input('Term : ')
+
+    enrolldict = loadfile(enrolldict)
+    newlist = []
+    for k,v in enrolldict.items():
+        newlist = [v for v in enrolldict.items()]
+
+
+    print(newlist[0][0])
+
+
 def addenrollment(enrolldict,studdict,subdict):
     newdict ={}
     sg.theme('Purple')
@@ -291,6 +304,7 @@ def enrollmain():
             [sg.Button('Edit Enrollment  ',size=20,key='Edit',font=('Arial',20)),sg.Text('Edit Existing records',justification='left',size = (20,1),font=('Arial',20))],
             [sg.Button('Delete Enrollment',size=20,key='Delete',font=('Arial',20)),sg.Text('Delete Existing records',justification='left',size = (20,1),font=('Arial',20))],
             [sg.Button('View Enrollment  ',size=20,key='View',font=('Arial',20)),sg.Text('View Existing records',justification='left',size = (20,1),font=('Arial',20))],
+            [sg.Button('View Class',key='ViewClass')],
             [sg.Cancel(size=20,font=('Arial',20)),sg.Text('Cancel ',justification='left', size = (20,1),font=('Arial',20))],
         ]
     wind2 = sg.Window('Registration of Classes of Students', layout)
@@ -316,6 +330,8 @@ def enrollmain():
 
             sg.Popup(enrolldict.keys())
             continue
+        elif event == 'ViewClass':
+            print_students(enrolldict)
 
 
 
