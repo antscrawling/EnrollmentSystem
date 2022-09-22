@@ -14,16 +14,84 @@ def savefile(enrolldict):
         f2.close()
     return enrolldict
 
-def print_students(enrolldict):
-    term = input('Term : ')
+def print_tuition(enrolldict):
+    term = 'TERM012022'
+    #stud = input('Student: ')
+    
 
     enrolldict = loadfile(enrolldict)
+    #print(enrolldict[stud+term]['amount'])
     newlist = []
+    newdict = {}
+    x = 0
     for k,v in enrolldict.items():
-        newlist = [v for v in enrolldict.items()]
+        if v['term'] == term:
+            newlist.append(v['studid'])
+            newlist.append(v['subid'])
+            newlist.append(v['term'])
+            newlist.append(v['amount'])
+    print(len(newlist))
+    twolist = []
+    threelist =[]
+    newdict = {}
+    amount = 0 
+    onelist = [x for x in range(0,len(newlist),4)]
+    for y in onelist:     
+        # 0  term, 1 student 2 subject 3 amount   
+        #print("TERM {}, stud {}, sub {} amount {}".format(newlist[y+2],newlist[y],newlist[y+1],newlist[y+3]))
+        twolist.append(newlist[y])
+        twolist.append(newlist[y+3])
+    #print(twolist)
+
+    for x in range(0,len(twolist),2):
+        stud = twolist[x]
+        if stud in newdict.keys():
+            amount  = twolist[x+1] + newdict[stud]
+            newdict[stud] = amount
+            newdict.update(newdict)
+        else:
+            amount = twolist[x+1]
+            newdict[stud] = amount
+            newdict.update(newdict)
+        #print(stud,amount)
+        
+    sg.Popup(newdict,font=('Arial',20))
 
 
-    print(newlist[0][0])
+
+
+
+
+
+    print(newdict)
+
+    
+
+#        if not y+6 > len(newlist):
+#            term2 = newlist[y+6]
+#            stud2 = newlist[y+4]
+#            amount2 = newlist[y+7]
+#            if  term1+stud1 == term2+stud2:
+#                amount1 += amount2
+#                newdict[term1+stud1] = amount1
+#            else:
+#                newdict[term2+stud2] = amount2
+#        
+        
+    print(newdict)
+
+
+
+    # term, student, amount
+
+    #print(threelist)
+    
+
+    
+    
+
+        
+
 
 
 def addenrollment(enrolldict,studdict,subdict):
@@ -211,11 +279,11 @@ def deleteenrollment(enrolldict,studdict,subdict):
              ,sg.Submit()],
             [sg.Text('',size=50)],            
             [sg.Text('',size=20,font=('Arial',20))],
-            [sg.Text('Student ID',size=10),sg.OptionMenu(studdict.keys(),size=20,font=('Arial',20),key='studid'),
+            [sg.Text('Student ID',size=10),sg.OptionMenu(studdict.keys(),size=20,key='studid'),
              sg.Text('',size=20,font=('Arial',20))],
-            [sg.Text('Subject ID',size=10),sg.OptionMenu(subdict.keys(),size=20,font=('Arial',20),key='subid'),
+            [sg.Text('Subject ID',size=10),sg.OptionMenu(subdict.keys(),size=20,key='subid'),
              sg.Text('',size=20,font=('Arial',20))],
-            [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,font=('Arial',20),key='term'),
+            [sg.Text('Term',size=10),sg.OptionMenu(('TERM012022','TERM022022','TERM032022'),size=20,key='term'),
              sg.Text('',size=20,font=('Arial',20))],
             [sg.Text('Subject Name',size = (20,1)),sg.Text('',key='subname',size = (20,1),text_color='Blue')],
             [sg.Text('Teacher Name',size = (20,1)),sg.Text('',key='teacher',size = (20,1),text_color='Blue')],
@@ -304,7 +372,7 @@ def enrollmain():
             [sg.Button('Edit Enrollment  ',size=20,key='Edit',font=('Arial',20)),sg.Text('Edit Existing records',justification='left',size = (20,1),font=('Arial',20))],
             [sg.Button('Delete Enrollment',size=20,key='Delete',font=('Arial',20)),sg.Text('Delete Existing records',justification='left',size = (20,1),font=('Arial',20))],
             [sg.Button('View Enrollment  ',size=20,key='View',font=('Arial',20)),sg.Text('View Existing records',justification='left',size = (20,1),font=('Arial',20))],
-            [sg.Button('View Class',key='ViewClass')],
+            [sg.Button('View Tuition',key='ViewClass',font=('Arial',20))],
             [sg.Cancel(size=20,font=('Arial',20)),sg.Text('Cancel ',justification='left', size = (20,1),font=('Arial',20))],
         ]
     wind2 = sg.Window('Registration of Classes of Students', layout)
@@ -331,7 +399,8 @@ def enrollmain():
             sg.Popup(enrolldict.keys())
             continue
         elif event == 'ViewClass':
-            print_students(enrolldict)
+            newlist = []
+            newlist = print_tuition(enrolldict)
 
 
 
@@ -339,7 +408,8 @@ def enrollmain():
 
 
 
-#if __name__ == '__main__':
-#    enrollmain()
+
+if __name__ == '__main__':
+    enrollmain()
 
 
