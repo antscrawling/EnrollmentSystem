@@ -212,7 +212,7 @@ def studmain():
     
 
 
-if __name__ == '__main__':
-    studmain()
+#if __name__ == '__main__':
+#    studmain()
     
 
