@@ -65,8 +65,8 @@ def print_tuition(enrolldict):
         studdict = json.load(ff)
     
     layout = [
-        [sg.Text('Input the TERM',size=15,font=('Arial',20)),sg.OptionMenu(termlist,size=(20,1),key='term')],
-        [sg.Text('Input the Student',size=15,font=('Arial',20)),sg.OptionMenu(studlist,key='stud',size=(20,1)),sg.Button('Submit',size=10,font=('Arial',20)),sg.Button('Cancel',size=10,font=('Arial',20))],
+        [sg.Text('Input the TERM',size=15,font=('Arial',20)),sg.OptionMenu(termlist,size=(20,2),key='term')],
+        [sg.Text('Input the Student',size=15,font=('Arial',20)),sg.OptionMenu(studlist,key='stud',size=(20,2)),sg.Button('Submit',size=10,font=('Arial',20)),sg.Button('Cancel',size=10,font=('Arial',20))],
         [sg.Text('TERM',size=10,font=('Arial',20)),sg.Text(key='-term-',text_color='Blue',font=('Arial',20))],
         [sg.Text('Student Name',size=25,font=('Arial',20)),sg.Text('Subject',size=15,font=('Arial',20)),sg.Text('Units',size=5,font=('Arial',20)),sg.Text('Amount',size=15,font=('Arial',20))],
         [sg.Text(key='-studname1-',size=25,font=('Arial',20),text_color='Blue'),sg.Text(key='-Subject1-',size=15,font=('Arial',20),text_color='Blue'),sg.Text(key='-Units1-',size=5,font=('Arial',20),text_color='Blue'),sg.Text(key='-Amount1-',size=15,font=('Arial',20),text_color='Blue')],
@@ -213,8 +213,10 @@ def print_tuition(enrolldict):
                     wind['-Amount7-'].update(v['amount'])
                     c += 1
                 else:
-                    newamount = 'S$ {:,.2f}'.format(newdict[stud])
-                    wind['-TotalAmount-'].update(newamount)
+                    try:
+                        newamount = 'S$ {:,.2f}'.format(newdict[stud])
+                        wind['-TotalAmount-'].update(newamount)
+                    except: continue
 
 
 
@@ -515,7 +517,7 @@ def enrollmain():
     enrolldict ={}
     subdict = {}
     enrolldict ={}
-
+    
     fileenroll = open('enroll.json','r')
     enrolldict = json.load(fileenroll)
     
@@ -526,7 +528,7 @@ def enrollmain():
     filesub = open('subjects.json','r')
     subdict = json.load(filesub)
     #print(subdict)
-
+    #print(help(enrolldict))
 
     sg.theme('Purple')
     layout = [  
