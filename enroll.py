@@ -15,7 +15,7 @@ def savefile(enrolldict):
     return enrolldict
 
 def print_tuition(enrolldict):
-    #enrolldict = loadfile(enrolldict)
+    enrolldict = loadfile(enrolldict)
     #term = 'TERM012022'
     ##print(enrolldict[stud+term]['amount'])
     #newlist = []
@@ -574,7 +574,7 @@ def enrollmain():
 
 
 
-if __name__ == '__main__':
-    enrollmain()
+#if __name__ == '__main__':
+#    enrollmain()
 
 

@@ -10,14 +10,6 @@ class count_class:
         self.login = login
         self.count = count
 
-    def addcounter(self,num):
-        self.count += num
-        return self.count 
-
-    def subtractcounter(self):
-        self.count = 0
-        return self.count
-        
 
 
         
@@ -176,45 +168,34 @@ def passmain():
     ]
     wind = sg.Window('Password Login',layout)
     initial = 0
-    num = 0
     while True:
         events, values = wind.read()
-        counter = count_class(values['-Login-'],0)
         wind['Message'].update('')
         if events == sg.WIN_CLOSED or events == 'Cancel':
             break
         #elif values['-Login-'] == '' or values['-Password-']=='':
         #    break
         elif events == 'Submit' :
-            if values['-Password-'] == '' or values['-Login-'] == '':                             
-                counter.addcounter(num)
-                wind['Message'].update('Blank entered, {}'.format(counter.count))   
-                continue            
-            elif trytologin(values):
-                num = 0
+            num = 0
+            if trytologin(values):
                 sg.Popup('Login Successful',font=('Arial',20))
                 wind['-Login-'].update('')
                 wind['-Password-'].update('')
                 wind['Message'].update('')
-                counter.subtractcounter()                
-                counter = count_class(values['-Login-'],num)
                 main.mainmenu()
                 continue
-            elif not trytologin(values):     
-                num += 1           
-                counter.addcounter(num)
-                print(counter.login,counter.count)
-                if counter.count < 4 :
-                    sg.Popup('Password Incorrect, {} tries'.format(counter.count),font=('Arial',20))
-                    wind['-Login-'].update('')
-                    wind['-Password-'].update('')
-                    wind['Message'].update('')
-                    continue
-                else: 
-                    wind['Message'].update('Too many tries')
-                    print('Too many tries')
-                    break
+            elif not trytologin(values):
+                num += 1
+                counter = count_class(values['-Login-'],num)
+                sg.Popup('Password Incorrect',font=('Arial',20))
+                wind['-Login-'].update('')
+                wind['-Password-'].update('')
+                wind['Message'].update('')
+                continue
             
+            elif values['-Password-'] == '' or values['-Login-'] == '':
+                wind['Message'].update('Blank entered')
+                continue
         elif events == 'Create':            
             createpass()
             continue
