@@ -16,6 +16,10 @@ def savefile(enrolldict):
 
 def print_tuition(enrolldict):
     enrolldict = loadfile(enrolldict)
+    subdict ={}
+    with open('subjects.json','r') as subfile:
+        subdict = json.load(subfile)
+
     #term = 'TERM012022'
     ##print(enrolldict[stud+term]['amount'])
     #newlist = []
@@ -150,7 +154,7 @@ def print_tuition(enrolldict):
                 twolist.append(newlist[y])
                 twolist.append(newlist[y+3])
             #print(twolist)
-
+            #UPDATE THE AMOUNT HERE and sum it.
             for x in range(0,len(twolist),2):
                 stud = twolist[x]
                 if stud in newdict.keys():
@@ -173,43 +177,43 @@ def print_tuition(enrolldict):
                 if stud == v['studid'] and c == 1:
                     wind['-studname1-'].update(myname)
                     wind['-Subject1-'].update(v['subid'])
-                    wind['-Units1-'].update('3.0')
+                    wind['-Units1-'].update(subdict[v['subid']]['units'])
                     wind['-Amount1-'].update(v['amount'])
                     c += 1
                 elif stud == v['studid'] and c == 2:
                     wind['-studname2-'].update(myname)
                     wind['-Subject2-'].update(v['subid'])
-                    wind['-Units2-'].update('3.0')
+                    wind['-Units2-'].update(subdict[v['subid']]['units'])
                     wind['-Amount2-'].update(v['amount'])
                     c += 1
                 elif stud == v['studid'] and c == 3:
                     wind['-studname3-'].update(myname)
                     wind['-Subject3-'].update(v['subid'])
-                    wind['-Units3-'].update('3.0')
+                    wind['-Units3-'].update(subdict[v['subid']]['units'])
                     wind['-Amount3-'].update(v['amount'])
                     c += 1
                 elif stud == v['studid'] and c == 4:
                     wind['-studname4-'].update(myname)
                     wind['-Subject4-'].update(v['subid'])
-                    wind['-Units4-'].update('3.0')
+                    wind['-Units4-'].update(subdict[v['subid']]['units'])
                     wind['-Amount4-'].update(v['amount'])
                     c += 1
                 elif stud == v['studid'] and c == 5:
                     wind['-studname5-'].update(myname)
                     wind['-Subject5-'].update(v['subid'])
-                    wind['-Units5-'].update('3.0')
+                    wind['-Units5-'].update(subdict[v['subid']]['units'])
                     wind['-Amount5-'].update(v['amount'])
                     c += 1
                 elif stud == v['studid'] and c == 6:
                     wind['-studname6-'].update(myname)
                     wind['-Subject6-'].update(v['subid'])
-                    wind['-Units6-'].update('3.0')
+                    wind['-Units6-'].update(subdict[v['subid']]['units'])
                     wind['-Amount6-'].update(v['amount'])
                     c += 1
                 elif stud == v['studid'] and c == 7:
                     wind['-studname7-'].update(myname)
                     wind['-Subject7-'].update(v['subid'])
-                    wind['-Units7-'].update('3.0')
+                    wind['-Units7-'].update(subdict[v['subid']]['units'])
                     wind['-Amount7-'].update(v['amount'])
                     c += 1
                 else:

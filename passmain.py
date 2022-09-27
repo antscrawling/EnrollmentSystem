@@ -80,7 +80,7 @@ def createpass():
         [sg.Text('Enter Admin Password',size=(20,1),font=('Arial',20)),sg.Input(key='-APassword-',password_char='*',size=(40,3),font=('Arial',20))],
         [sg.Button('Submit',size=(15,1),font=('Arial',20)),sg.Button('Cancel',size=(15,1),font=('Arial',20))]
     ]
-    cwind = sg.Window('Create New Password',clayout)
+    cwind = sg.Window('Create New Password, requires Admin',clayout)
     while True:
         events, values = cwind.read()
         if events == sg.WINDOW_CLOSED or events == 'Cancel':
