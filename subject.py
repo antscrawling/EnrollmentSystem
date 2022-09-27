@@ -191,7 +191,7 @@ def submain():
             continue
 
 
-if __name__ == '__main__':
-    submain()
+#if __name__ == '__main__':
+#    submain()
 
 

@@ -1,9 +1,8 @@
 
 import os
 import json
-
 import PySimpleGUI as sg
-
+import pandas as pd
 
 def loadfile(studdict):
     #studdict = {'studid':[],'fname':[],'mname':[],'lname':[],'rate':[]}
@@ -203,8 +202,8 @@ def studmain():
             deletestudents(studdict)
             continue
         elif event == 'View':
-            flat = nested_to_record(studdict, sep='_')
-            #df = pd.DataFrame.from_dict(studdict)
+            #flat = nested_to_record(studdict, sep='_')
+            flat = pd.DataFrame.from_dict(studdict)
             sg.Popup(flat)
             continue
         elif event == sg.WINDOW_CLOSED or event == 'Cancel' :
@@ -213,7 +212,7 @@ def studmain():
     
 
 
-if __name__ == '__main__':
-    studmain()
+#if __name__ == '__main__':
+#    studmain()
     
 
